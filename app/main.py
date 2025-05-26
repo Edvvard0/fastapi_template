@@ -4,10 +4,12 @@ from starlette.staticfiles import StaticFiles
 
 from app.config import settings
 from app.users.router import router as user_router
+from app.pages.router import router as pages_router
 
 
 app = FastAPI()
 app.include_router(user_router)
+app.include_router(pages_router)
 
 app.mount("/static", StaticFiles(directory="app/static"), "static")
 
